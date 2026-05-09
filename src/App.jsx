@@ -67,7 +67,14 @@ function VideoHero() {
           <div className="device-video" aria-label="Placeholder do v&iacute;deo explicativo">
             <div className="player-shell">
               <div className="screen-art">
-                <img src="/assets/prototipo.webp" alt="" />
+                <video
+  className="w-full h-full object-cover rounded-3xl"
+  src="/assets/video-site.webm"
+  autoPlay
+  muted
+  loop
+  playsInline
+/>
                 <div className="screen-overlay" />
               </div>
 
