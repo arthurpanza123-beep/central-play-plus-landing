@@ -77,7 +77,7 @@ function VideoHero() {
                   borderRadius: "20px",
                   zIndex: 3
                 }}
-                src="/assets/video-site.webm"
+                src="https://raw.githubusercontent.com/arthurpanza123-beep/public/main/video-site.webm"
                 autoPlay
                 muted
                 loop
