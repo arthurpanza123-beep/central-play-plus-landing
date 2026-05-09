@@ -1,0 +1,492 @@
+:root {
+  color-scheme: dark;
+  --bg: #04060d;
+  --text: #f7fbff;
+  --muted: rgba(255, 255, 255, 0.78);
+  --blue: #2f7bff;
+  --blue-soft: #5aa1ff;
+  --cyan: #67e7ff;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(180deg, rgba(4, 6, 13, 0.62), rgba(4, 6, 13, 0.48) 36%, #04060d 92%),
+    linear-gradient(90deg, #04060d 0%, rgba(4, 6, 13, 0.86) 48%, rgba(4, 6, 13, 0.18) 100%),
+    url("/assets/fundo.webp") right center / cover no-repeat;
+}
+
+.page-bg::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 12% 6%, rgba(29, 111, 251, 0.28), transparent 26%),
+    radial-gradient(circle at 50% 62%, rgba(47, 123, 255, 0.16), transparent 38%),
+    linear-gradient(180deg, rgba(4, 6, 13, 0.06), #04060d 96%);
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  width: min(1280px, 100%);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 40px 20px 42px;
+  align-content: start;
+  gap: 22px;
+}
+
+.hero::before {
+  position: absolute;
+  top: -128px;
+  left: 50%;
+  width: 360px;
+  height: 360px;
+  content: "";
+  border-radius: 50%;
+  background: rgba(29, 111, 251, 0.3);
+  filter: blur(110px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 768px;
+  margin: 0;
+  text-align: left;
+}
+
+.reference-kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 24px -12px rgba(47, 123, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  line-height: 1;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+}
+
+.ping-dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  box-shadow: 0 0 8px rgba(95, 161, 255, 0.9);
+}
+
+.ping-dot::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  border-radius: inherit;
+  background: var(--blue);
+  opacity: 0.75;
+  animation: pingDot 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+h1 {
+  width: 100%;
+  max-width: 768px;
+  margin: 0;
+  font-size: clamp(2.25rem, 9vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-wrap: balance;
+}
+
+h1 span {
+  display: block;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+h1 strong {
+  display: block;
+  margin-top: 6px;
+  padding-bottom: 4px;
+  color: transparent;
+  background: linear-gradient(180deg, #8ec3ff 0%, #2f7bff 55%, #0f3fb5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 4px 24px rgba(37, 99, 255, 0.5));
+}
+
+.hero-copy > p:last-child {
+  width: min(576px, 100%);
+  margin: 24px 0 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--blue);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.36;
+  text-align: left;
+}
+
+.hero-copy > p:last-child b {
+  color: var(--blue-soft);
+  font-weight: 700;
+}
+
+.video-stage {
+  position: relative;
+  z-index: 3;
+  width: 100vw;
+  max-width: 941px;
+  margin: -16px 0 0 calc(50% - 50vw);
+}
+
+.video-stage::before {
+  position: absolute;
+  inset: 42% 5% -4%;
+  content: "";
+  border-radius: 50%;
+  background: rgba(0, 116, 255, 0.26);
+  filter: blur(58px);
+  pointer-events: none;
+}
+
+.device-showcase {
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 941 / 980;
+  width: 100%;
+  filter:
+    drop-shadow(0 34px 72px rgba(0, 0, 0, 0.42))
+    drop-shadow(0 0 44px rgba(34, 199, 255, 0.28));
+}
+
+.device-video {
+  position: absolute;
+  top: 44.5%;
+  left: 11.15%;
+  z-index: 1;
+  width: 78.05%;
+  height: 38.55%;
+  overflow: hidden;
+  border-radius: clamp(14px, 3.8vw, 28px);
+  background: #030711;
+  box-shadow:
+    0 0 34px rgba(34, 199, 255, 0.4),
+    inset 0 0 0 1px rgba(172, 237, 255, 0.2);
+}
+
+.device-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.player-shell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  background: linear-gradient(145deg, rgba(9, 20, 38, 0.94), rgba(4, 8, 18, 0.84));
+}
+
+.player-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.1), transparent 27%, transparent 62%, rgba(103, 231, 255, 0.06)),
+    radial-gradient(circle at 50% 45%, transparent 0 28%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+.screen-art,
+.screen-art img,
+.screen-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.screen-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.screen-overlay {
+  background:
+    linear-gradient(180deg, rgba(4, 8, 18, 0.06), rgba(4, 8, 18, 0.5)),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 4px);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  display: grid;
+  width: clamp(68px, 14vw, 124px);
+  height: clamp(68px, 14vw, 124px);
+  place-items: center;
+  border: 1px solid rgba(220, 250, 255, 0.54);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.34), transparent 28%),
+    linear-gradient(145deg, rgba(103, 231, 255, 0.96), rgba(0, 141, 255, 0.86));
+  color: #00111d;
+  box-shadow:
+    0 0 34px rgba(34, 199, 255, 0.64),
+    0 0 74px rgba(0, 141, 255, 0.38);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  animation: softPulse 2.7s ease-in-out infinite;
+}
+
+.player-controls {
+  position: absolute;
+  right: clamp(10px, 2vw, 20px);
+  bottom: clamp(8px, 1.7vw, 16px);
+  left: clamp(10px, 2vw, 20px);
+  z-index: 6;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(150, 228, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(3, 8, 18, 0.58);
+  color: rgba(239, 250, 255, 0.84);
+  font-size: clamp(0.64rem, 2.7vw, 0.86rem);
+  backdrop-filter: blur(14px);
+}
+
+.progress-track {
+  overflow: hidden;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.progress-fill {
+  display: block;
+  width: 34%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+  box-shadow: 0 0 20px rgba(34, 199, 255, 0.8);
+}
+
+.hero-cta {
+  position: relative;
+  z-index: 6;
+  display: grid;
+  width: 100%;
+  place-items: center;
+  margin-top: -8px;
+}
+
+.whatsapp-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(330px, 100%);
+  min-height: 78px;
+  gap: 14px;
+  overflow: hidden;
+  padding: 19px 22px;
+  border: 1px solid rgba(112, 219, 255, 0.82);
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(11, 39, 78, 0.9), rgba(2, 14, 35, 0.96)),
+    rgba(4, 12, 27, 0.94);
+  color: #f4fbff;
+  font-size: 1.02rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-align: center;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.36),
+    0 0 26px rgba(57, 185, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 20px rgba(47, 123, 255, 0.08);
+}
+
+.whatsapp-button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: translateX(-120%);
+  animation: shine 6.2s ease-in-out infinite;
+}
+
+.whatsapp-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes softPulse {
+  50% {
+    box-shadow:
+      0 0 44px rgba(103, 231, 255, 0.86),
+      0 0 104px rgba(0, 141, 255, 0.48);
+  }
+}
+
+@keyframes buttonGlow {
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+@keyframes shine {
+  0%,
+  55% {
+    transform: translateX(-120%);
+  }
+  72%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes pingDot {
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding: 64px 48px 56px;
+  }
+
+  .page-bg {
+    background:
+      linear-gradient(90deg, #04060d 0%, rgba(4, 6, 13, 0.88) 52%, rgba(4, 6, 13, 0.16) 100%),
+      linear-gradient(180deg, rgba(4, 6, 13, 0.58), rgba(4, 6, 13, 0.44) 40%, #04060d 96%),
+      url("/assets/fundo.webp") right center / cover no-repeat;
+  }
+
+  .hero::before {
+    left: 40px;
+    width: 480px;
+    height: 480px;
+    transform: none;
+  }
+
+  .reference-kicker {
+    margin-bottom: 40px;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+  }
+
+  h1 {
+    font-size: clamp(4.4rem, 8vw, 7rem);
+  }
+
+  .hero-copy > p:last-child {
+    margin-top: 40px;
+    padding-left: 18px;
+    font-size: 18px;
+  }
+
+  .video-stage {
+    width: min(720px, 54vw);
+    margin: -120px 0 0 auto;
+  }
+
+  .hero-cta {
+    width: min(650px, 54vw);
+    margin: -16px 0 0 auto;
+  }
+
+  .product-grid {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-copy {
+    margin: 0 auto;
+  }
+
+  .video-stage {
+    width: 116vw;
+    max-width: none;
+    margin-left: calc(50% - 58vw);
+  }
+
+  .player-controls {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .player-controls svg:last-child {
+    display: none;
+  }
+}
