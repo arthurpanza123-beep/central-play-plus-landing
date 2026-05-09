@@ -68,7 +68,7 @@ main {
 .hero {
   position: relative;
   display: grid;
-  width: min(1280px, 100%);
+  width: min(1440px, 100%);
   min-height: 100dvh;
   margin: 0 auto;
   padding: 40px 20px 42px;
@@ -423,7 +423,8 @@ h1 strong {
 @media (min-width: 768px) {
   .hero {
     justify-content: center;
-    padding: 64px 48px 56px;
+    padding: 80px 64px 64px;
+    gap: 32px;
   }
 
   .page-bg {
@@ -435,8 +436,8 @@ h1 strong {
 
   .hero::before {
     left: 40px;
-    width: 480px;
-    height: 480px;
+    width: 560px;
+    height: 560px;
     transform: none;
   }
 
@@ -457,13 +458,13 @@ h1 strong {
   }
 
   .video-stage {
-    width: min(720px, 54vw);
-    margin: -120px 0 0 auto;
+    width: min(900px, 62vw);
+    margin: -140px 0 0 auto;
   }
 
   .hero-cta {
-    width: min(650px, 54vw);
-    margin: -16px 0 0 auto;
+    width: min(900px, 62vw);
+    margin: -24px 0 0 auto;
   }
 
   .product-grid {
@@ -489,4 +490,19 @@ h1 strong {
   .player-controls svg:last-child {
     display: none;
   }
+}
+
+
+.player-controls-below {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: min(82%, 520px) !important;
+  margin: 14px auto 0 !important;
+  z-index: 5 !important;
+}
+
+.play-button {
+  display: none !important;
 }

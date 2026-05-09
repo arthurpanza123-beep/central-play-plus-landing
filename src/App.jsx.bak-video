@@ -4,7 +4,9 @@ import { Play, Volume2, Maximize2, MessageCircle } from "lucide-react";
 const WHATSAPP_NUMBER = "5500000000000";
 const WHATSAPP_MESSAGE =
   "Ol\u00e1! Vim pelo site da Central Play Plus e quero entender como funciona.";
-const WHATSAPP_URL = "https://wa.link/64pxb3";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  WHATSAPP_MESSAGE
+)}`;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -65,34 +67,24 @@ function VideoHero() {
           <div className="device-video" aria-label="Placeholder do v&iacute;deo explicativo">
             <div className="player-shell">
               <div className="screen-art">
-                <video
-                className="hero-video-real"
-                style={{
-                  position: "absolute",
-                  left: "1%",
-                  top: "1%",
-                  width: "98%",
-                  height: "96%",
-                  objectFit: "cover",
-                  borderRadius: "20px",
-                  zIndex: 3
-                }}
-                src="/assets/video-site.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-              />
+                <img src="/assets/prototipo.webp" alt="" />
                 <div className="screen-overlay" />
               </div>
 
-              
+              <button className="play-button" aria-label="Reproduzir v&iacute;deo">
+                <Play size={42} fill="currentColor" />
+              </button>
 
+              <div className="player-controls" aria-hidden="true">
+                <span>00:00</span>
+                <div className="progress-track">
+                  <span className="progress-fill" />
+                </div>
+                <Volume2 size={17} />
+                <Maximize2 size={17} />
               </div>
+            </div>
           </div>
-
-          
 
           <img
             className="device-frame"
