@@ -3,3 +3,5 @@ dist
 *.log
 
 _reference_github_welcome_screen/
+
+dist/
